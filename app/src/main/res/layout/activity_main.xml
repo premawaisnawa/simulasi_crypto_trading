@@ -1,18 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.premawaisnawa.simulasicryptotrading.MainActivity">
+    tools:context="com.example.premawaisnawa.simulasicryptotrading.MainActivity"
+    android:orientation="vertical">
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
+        android:text="Simulasi Trading\nCryptocurrency"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:textSize="20dp"
+        android:textAlignment="center"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/img_idr"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:src="@drawable/unnamed"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="50dp"
+            android:layout_alignParentLeft="true"/>
+        <ImageView
+            android:id="@+id/img_btc"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:src="@drawable/bitcoin"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="50dp"
+            android:layout_alignParentRight="true"/>
 
-</android.support.constraint.ConstraintLayout>
+        </RelativeLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="IDR Market"
+            android:layout_marginLeft="73dp"
+            android:layout_alignParentLeft="true"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="BTC Market"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="66dp"/>
+        </RelativeLayout>
+    </LinearLayout>
+<RelativeLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:text="About" />
+</RelativeLayout>
+
+</LinearLayout>
