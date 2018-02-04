@@ -90,18 +90,7 @@ public class IdrMarketActivity extends AppCompatActivity {
                 hitungTotalCoin();
                 TvTotalCoin.setText(String.valueOf(getTotalCoin()));
                 TvTotalIdr.setText(String.valueOf(getTotalIdr()));
-//                if( EtJumlahIdr.getText().toString().isEmpty()){
-//                    jumlahIdr = 0;
-//                }else {
-//                    jumlahIdr =  Double.parseDouble(EtJumlahIdr.getText().toString());
-//                }
-//
-//                if (jumlahIdr == 0){
-//                    TvTotalCoin.setText(String.valueOf(0));
-//                }else {
-//                    totalCoin = jumlahIdr/hargaBeliCoin;
-//                    TvTotalCoin.setText(String.valueOf(totalCoin));
-//                }
+
             }
 
             @Override
@@ -127,18 +116,6 @@ public class IdrMarketActivity extends AppCompatActivity {
                 hitungTotalIdr();
                 TvTotalCoin.setText(String.valueOf(getTotalCoin()));
                 TvTotalIdr.setText(String.valueOf(getTotalIdr()));
-//                if(EtBeliCoin.getText().toString().isEmpty()){
-//                    hargaBeliCoin = 0;
-//                }else {
-//                    hargaBeliCoin = Double.parseDouble(EtBeliCoin.getText().toString());
-//                }
-//
-//                if (hargaBeliCoin == 0){
-//                    TvTotalCoin.setText(String.valueOf(0));
-//                }else {
-//                    totalCoin = jumlahIdr/hargaBeliCoin;
-//                    TvTotalCoin.setText(String.valueOf(totalCoin));
-//                }
             }
             @Override
             public void afterTextChanged(Editable s) {
@@ -149,9 +126,7 @@ public class IdrMarketActivity extends AppCompatActivity {
         EtJualCoin.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-//                hitungTotalCoin();
-//                hitungTotalIdr();
-//                TvTotalIdr.setText(String.valueOf(getTotalIdr()));
+
             }
 
             @Override
@@ -167,33 +142,12 @@ public class IdrMarketActivity extends AppCompatActivity {
                 double coin = Double.parseDouble(TvTotalCoin.getText().toString());
                 double totidr = coin   *hargaJualCoin;
                 TvTotalIdr.setText(String.valueOf(totidr));
-//                if(EtBeliCoin.getText().toString().isEmpty()){
-//                    hargaBeliCoin = 0;
-//                }else {
-//                    hargaBeliCoin = Double.parseDouble(EtBeliCoin.getText().toString());
-//                }
-//                if( EtJumlahIdr.getText().toString().isEmpty()){
-//                    jumlahIdr = 0;
-//                }else {
-//                    jumlahIdr =  Double.parseDouble(EtJumlahIdr.getText().toString());
-//                }
 
-//                totalCoin = Double.parseDouble(TvTotalCoin.getText().toString());
-//                totalIdr = totalCoin * hargaJualCoin;
-//                TvTotalIdr.setText(String.valueOf(totalIdr));
-//                if (hargaBeliCoin == 0){
-//                    TvTotalCoin.setText(String.valueOf(0));
-//                }else {
-//                    totalCoin = jumlahIdr/hargaBeliCoin;
-//                    TvTotalCoin.setText(String.valueOf(totalCoin));
-//                }
             }
 
             @Override
             public void afterTextChanged(Editable s) {
-//                hitungTotalCoin();
-//                hitungTotalIdr();
-//                TvTotalIdr.setText(String.valueOf(getTotalIdr()));
+
             }
         });
 
