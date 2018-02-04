@@ -6,6 +6,7 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.KeyEvent;
 import android.view.View;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -14,6 +15,7 @@ public class IdrMarketActivity extends AppCompatActivity {
     TextView TvTotalCoin, TvTotalIdr, TvUntungRugi, TvPersentasi,TvTakerBeli,TvTakerJual;
     EditText EtBeliCoin, EtJumlahIdr, EtJualCoin;
     CheckBox CbTakerBeli,CbTakerJual;
+    Button BtnHitung;
     double jumlahIdr,hargaBeliCoin, hargaJualCoin, totalCoin, totalIdr;
 
     public double getJumlahIdr() {
@@ -68,88 +70,103 @@ public class IdrMarketActivity extends AppCompatActivity {
         TvTakerJual = (TextView) findViewById(R.id.tv_taker_jual);
         EtBeliCoin = (EditText) findViewById(R.id.et_beli_coin);
         EtJumlahIdr = (EditText) findViewById(R.id.et_jumlah_idr);
-        EtJualCoin = (EditText) findViewById(R.id.et_beli_coin);
+        EtJualCoin = (EditText) findViewById(R.id.et_sell_coin);
         CbTakerBeli = (CheckBox) findViewById(R.id.cb_taker_beli);
         CbTakerJual = (CheckBox) findViewById(R.id.cb_taker_jual);
+        BtnHitung = (Button) findViewById(R.id.btn_hitung);
 
-        EtBeliCoin.addTextChangedListener(new TextWatcher() {
+        BtnHitung.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-
-                if(s.toString().isEmpty()){
-                    hargaBeliCoin = 0;
-                }else {
-                    hargaBeliCoin = Double.parseDouble(s.toString());
-                }
-                setHargaBeliCoin(hargaBeliCoin);
-                hitungTotalCoin();
-                TvTotalCoin.setText(String.valueOf(getTotalCoin()));
-                TvTotalIdr.setText(String.valueOf(getTotalIdr()));
-
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-
+            public void onClick(View v) {
+                hargaBeliCoin = Double.parseDouble(EtBeliCoin.getText().toString());
+                jumlahIdr =  Double.parseDouble(EtJumlahIdr.getText().toString());
+                hargaJualCoin =  Double.parseDouble(EtJualCoin.getText().toString());
+                totalCoin = jumlahIdr / hargaBeliCoin;
+                totalIdr = totalCoin + hargaJualCoin;
+                TvTotalCoin.setText(String.valueOf(totalCoin));
+                TvTotalIdr.setText(String.valueOf(totalIdr));
             }
         });
-        EtJumlahIdr.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-            }
 
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-
-                if(s.toString().isEmpty() ){
-                    jumlahIdr = 0;
-                }else {
-                    jumlahIdr =  Double.parseDouble(s.toString());
-                }
-                setJumlahIdr(jumlahIdr);
-                hitungTotalCoin();
-                hitungTotalIdr();
-                TvTotalCoin.setText(String.valueOf(getTotalCoin()));
-                TvTotalIdr.setText(String.valueOf(getTotalIdr()));
-            }
-            @Override
-            public void afterTextChanged(Editable s) {
-
-
-            }
-        });
-        EtJualCoin.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                if(s.toString().isEmpty() ){
-                    hargaJualCoin = 0;
-                }else {
-                    hargaJualCoin =  Double.parseDouble(s.toString());
-                }
-                setHargaJualCoin(hargaJualCoin);
-                hitungTotalCoin();
-                hitungTotalIdr();
-                double coin = Double.parseDouble(TvTotalCoin.getText().toString());
-                double totidr = coin   *hargaJualCoin;
-                TvTotalIdr.setText(String.valueOf(totidr));
-
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-
-            }
-        });
+//
+//        EtBeliCoin.addTextChangedListener(new TextWatcher() {
+//            @Override
+//            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+//
+//            }
+//
+//            @Override
+//            public void onTextChanged(CharSequence s, int start, int before, int count) {
+//
+//                if(s.toString().isEmpty()){
+//                    hargaBeliCoin = 0;
+//                }else {
+//                    hargaBeliCoin = Double.parseDouble(s.toString());
+//                }
+//                setHargaBeliCoin(hargaBeliCoin);
+//                hitungTotalCoin();
+//                TvTotalCoin.setText(String.valueOf(getTotalCoin()));
+//                TvTotalIdr.setText(String.valueOf(getTotalIdr()));
+//
+//            }
+//
+//            @Override
+//            public void afterTextChanged(Editable s) {
+//
+//            }
+//        });
+//        EtJumlahIdr.addTextChangedListener(new TextWatcher() {
+//            @Override
+//            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+//            }
+//
+//            @Override
+//            public void onTextChanged(CharSequence s, int start, int before, int count) {
+//
+//                if(s.toString().isEmpty() ){
+//                    jumlahIdr = 0;
+//                }else {
+//                    jumlahIdr =  Double.parseDouble(s.toString());
+//                }
+//                setJumlahIdr(jumlahIdr);
+//                hitungTotalCoin();
+//                hitungTotalIdr();
+//                TvTotalCoin.setText(String.valueOf(getTotalCoin()));
+//                TvTotalIdr.setText(String.valueOf(getTotalIdr()));
+//            }
+//            @Override
+//            public void afterTextChanged(Editable s) {
+//
+//
+//            }
+//        });
+//        EtJualCoin.addTextChangedListener(new TextWatcher() {
+//            @Override
+//            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+//
+//            }
+//
+//            @Override
+//            public void onTextChanged(CharSequence s, int start, int before, int count) {
+//                if(s.toString().isEmpty() ){
+//                    hargaJualCoin = 0;
+//                }else {
+//                    hargaJualCoin =  Double.parseDouble(s.toString());
+//                }
+//                setHargaJualCoin(hargaJualCoin);
+//                hitungTotalCoin();
+//                hitungTotalIdr();
+//                double coin = Double.parseDouble(TvTotalCoin.getText().toString());
+//                double totidr = coin   *hargaJualCoin;
+//                TvTotalIdr.setText(String.valueOf(totidr));
+//
+//            }
+//
+//            @Override
+//            public void afterTextChanged(Editable s) {
+//
+//            }
+//        });
 
 
     }
