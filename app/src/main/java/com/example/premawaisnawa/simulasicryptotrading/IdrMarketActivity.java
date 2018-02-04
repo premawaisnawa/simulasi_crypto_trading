@@ -14,7 +14,48 @@ public class IdrMarketActivity extends AppCompatActivity {
     TextView TvTotalCoin, TvTotalIdr, TvUntungRugi, TvPersentasi,TvTakerBeli,TvTakerJual;
     EditText EtBeliCoin, EtJumlahIdr, EtJualCoin;
     CheckBox CbTakerBeli,CbTakerJual;
-    double jumlahIdr,hargaBeliCoin,totalCoin;
+    double jumlahIdr,hargaBeliCoin, hargaJualCoin, totalCoin, totalIdr;
+
+    public double getJumlahIdr() {
+        return jumlahIdr;
+    }
+
+    public void setJumlahIdr(double jumlahIdr) {
+        this.jumlahIdr = jumlahIdr;
+    }
+
+    public double getHargaBeliCoin() {
+        return hargaBeliCoin;
+    }
+
+    public void setHargaBeliCoin(double hargaBeliCoin) {
+        this.hargaBeliCoin = hargaBeliCoin;
+    }
+
+    public double getHargaJualCoin() {
+        return hargaJualCoin;
+    }
+
+    public void setHargaJualCoin(double hargaJualCoin) {
+        this.hargaJualCoin = hargaJualCoin;
+    }
+
+    public double getTotalCoin() {
+        return totalCoin;
+    }
+
+    public void hitungTotalCoin() {
+        this.totalCoin = this.jumlahIdr/this.hargaBeliCoin;
+    }
+
+    public double getTotalIdr() {
+        return totalIdr;
+    }
+
+    public void hitungTotalIdr() {
+        this.totalIdr = this.totalCoin * this.hargaJualCoin;
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,19 +86,22 @@ public class IdrMarketActivity extends AppCompatActivity {
                 }else {
                     hargaBeliCoin = Double.parseDouble(s.toString());
                 }
-
-                if( EtJumlahIdr.getText().toString().isEmpty()){
-                    jumlahIdr = 0;
-                }else {
-                    jumlahIdr =  Double.parseDouble(EtJumlahIdr.getText().toString());
-                }
-
-                if (jumlahIdr == 0){
-                    TvTotalCoin.setText(String.valueOf(0));
-                }else {
-                    totalCoin = jumlahIdr/hargaBeliCoin;
-                    TvTotalCoin.setText(String.valueOf(totalCoin));
-                }
+                setHargaBeliCoin(hargaBeliCoin);
+                hitungTotalCoin();
+                TvTotalCoin.setText(String.valueOf(getTotalCoin()));
+                TvTotalIdr.setText(String.valueOf(getTotalIdr()));
+//                if( EtJumlahIdr.getText().toString().isEmpty()){
+//                    jumlahIdr = 0;
+//                }else {
+//                    jumlahIdr =  Double.parseDouble(EtJumlahIdr.getText().toString());
+//                }
+//
+//                if (jumlahIdr == 0){
+//                    TvTotalCoin.setText(String.valueOf(0));
+//                }else {
+//                    totalCoin = jumlahIdr/hargaBeliCoin;
+//                    TvTotalCoin.setText(String.valueOf(totalCoin));
+//                }
             }
 
             @Override
@@ -72,30 +116,84 @@ public class IdrMarketActivity extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-//                if (usernameRes.equals("admin") && passwordRes.equals("admin")){
-//
-//                }
+
                 if(s.toString().isEmpty() ){
                     jumlahIdr = 0;
                 }else {
                     jumlahIdr =  Double.parseDouble(s.toString());
                 }
-                if(EtBeliCoin.getText().toString().isEmpty()){
-                    hargaBeliCoin = 0;
-                }else {
-                    hargaBeliCoin = Double.parseDouble(EtBeliCoin.getText().toString());
-                }
-                if (hargaBeliCoin == 0){
-                    TvTotalCoin.setText(String.valueOf(0));
-                }else {
-                    totalCoin = jumlahIdr/hargaBeliCoin;
-                    TvTotalCoin.setText(String.valueOf(totalCoin));
-                }
+                setJumlahIdr(jumlahIdr);
+                hitungTotalCoin();
+                hitungTotalIdr();
+                TvTotalCoin.setText(String.valueOf(getTotalCoin()));
+                TvTotalIdr.setText(String.valueOf(getTotalIdr()));
+//                if(EtBeliCoin.getText().toString().isEmpty()){
+//                    hargaBeliCoin = 0;
+//                }else {
+//                    hargaBeliCoin = Double.parseDouble(EtBeliCoin.getText().toString());
+//                }
+//
+//                if (hargaBeliCoin == 0){
+//                    TvTotalCoin.setText(String.valueOf(0));
+//                }else {
+//                    totalCoin = jumlahIdr/hargaBeliCoin;
+//                    TvTotalCoin.setText(String.valueOf(totalCoin));
+//                }
             }
             @Override
             public void afterTextChanged(Editable s) {
 
 
+            }
+        });
+        EtJualCoin.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+//                hitungTotalCoin();
+//                hitungTotalIdr();
+//                TvTotalIdr.setText(String.valueOf(getTotalIdr()));
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if(s.toString().isEmpty() ){
+                    hargaJualCoin = 0;
+                }else {
+                    hargaJualCoin =  Double.parseDouble(s.toString());
+                }
+                setHargaJualCoin(hargaJualCoin);
+                hitungTotalCoin();
+                hitungTotalIdr();
+                double coin = Double.parseDouble(TvTotalCoin.getText().toString());
+                double totidr = coin   *hargaJualCoin;
+                TvTotalIdr.setText(String.valueOf(totidr));
+//                if(EtBeliCoin.getText().toString().isEmpty()){
+//                    hargaBeliCoin = 0;
+//                }else {
+//                    hargaBeliCoin = Double.parseDouble(EtBeliCoin.getText().toString());
+//                }
+//                if( EtJumlahIdr.getText().toString().isEmpty()){
+//                    jumlahIdr = 0;
+//                }else {
+//                    jumlahIdr =  Double.parseDouble(EtJumlahIdr.getText().toString());
+//                }
+
+//                totalCoin = Double.parseDouble(TvTotalCoin.getText().toString());
+//                totalIdr = totalCoin * hargaJualCoin;
+//                TvTotalIdr.setText(String.valueOf(totalIdr));
+//                if (hargaBeliCoin == 0){
+//                    TvTotalCoin.setText(String.valueOf(0));
+//                }else {
+//                    totalCoin = jumlahIdr/hargaBeliCoin;
+//                    TvTotalCoin.setText(String.valueOf(totalCoin));
+//                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+//                hitungTotalCoin();
+//                hitungTotalIdr();
+//                TvTotalIdr.setText(String.valueOf(getTotalIdr()));
             }
         });
 
