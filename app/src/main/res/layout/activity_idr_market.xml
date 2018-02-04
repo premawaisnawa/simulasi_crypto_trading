@@ -4,6 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_marginLeft="4sp"
+    android:layout_marginRight="4sp"
     android:orientation="vertical"
     tools:context="com.example.premawaisnawa.simulasicryptotrading.IdrMarketActivity">
     <TextView
@@ -19,11 +21,13 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
         <EditText
-            android:layout_width="250dp"
+            android:id="@+id/et_beli_coin"
+            android:layout_width="250sp"
             android:layout_height="wrap_content"
             android:numeric="decimal" />
-        
+
         <CheckBox
+            android:id="@+id/cb_taker_beli"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Taker 0.3%"/>
@@ -33,9 +37,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
     <EditText
+        android:id="@+id/et_jumlah_idr"
         android:numeric="decimal"
-        android:layout_width="250dp"
-        android:layout_height="wrap_content" />
+        android:layout_width="250sp"
+        android:layout_height="wrap_content"
+        />
     <TextView
         android:text="Harga Jual Coin"
         android:layout_width="wrap_content"
@@ -45,10 +51,12 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
         <EditText
+            android:id="@+id/et_jual_coin"
             android:numeric="decimal"
-            android:layout_width="250dp"
+            android:layout_width="250sp"
             android:layout_height="wrap_content" />
         <CheckBox
+            android:id="@+id/cb_taker_jual"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Taker 0.3%"/>
@@ -57,23 +65,28 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Total Coin"/>
+
     <TextView
+        android:id="@+id/tv_total_coin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="0"/>
+        android:text="0" />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Total IDR"/>
     <TextView
+        android:id="@+id/tv_total_idr"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="0"/>
     <TextView
+
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Untung / Rugi (+/-)"/>
     <TextView
+        android:id="@+id/tv_untung_rugi"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="0"/>
@@ -82,6 +95,7 @@
         android:layout_height="wrap_content"
         android:text="Persentasi"/>
     <TextView
+        android:id="@+id/tv_persentasi"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="0"/>
@@ -90,6 +104,7 @@
         android:layout_height="wrap_content"
         android:text="Biaya Taker Beli"/>
     <TextView
+        android:id="@+id/tv_taker_beli"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="0"/>
@@ -98,6 +113,7 @@
         android:layout_height="wrap_content"
         android:text="Biaya Jual Beli"/>
     <TextView
+        android:id="@+id/tv_taker_jual"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="0"/>
