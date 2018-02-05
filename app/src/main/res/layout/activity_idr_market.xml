@@ -51,7 +51,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
         <EditText
-            android:id="@+id/et_jual_coin"
+            android:id="@+id/et_sell_coin"
             android:numeric="decimal"
             android:layout_width="250sp"
             android:layout_height="wrap_content" />
