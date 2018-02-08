@@ -11,6 +11,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import java.text.NumberFormat;
 import java.util.Locale;
+import java.text.DecimalFormat;
 
 public class IdrMarketActivity extends AppCompatActivity {
     TextView TvTotalCoin, TvTotalIdr, TvUntungRugi, TvPersentasi,TvTakerBeli,TvTakerJual;
@@ -99,21 +100,36 @@ public class IdrMarketActivity extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-
-                if(s.toString().isEmpty()){
-                    hargaBeliCoin = 0;
-                }else {
-                    hargaBeliCoin = Double.parseDouble(s.toString());
+                EtBeliCoin.removeTextChangedListener(this);
+                String originalString = s.toString();
+                Long longval;
+                if (originalString.contains(",")) {
+                    originalString = originalString.replaceAll(",", "");
                 }
-                setHargaBeliCoin(hargaBeliCoin);
-                hitungTotalCoin();
-                hitungTotalIdr();
-                hitungPersentasi();
-                hitungSelesih();
-                TvTotalCoin.setText(String.valueOf(getTotalCoin()));
-                TvTotalIdr.setText(String.valueOf(formatRupiah.format(getTotalIdr())));
-                TvPersentasi.setText(String.valueOf(getPersentasi()+" %"));
-                TvUntungRugi.setText(String.valueOf(formatRupiah.format(getSelesih())));
+                longval = Long.parseLong(originalString);
+                DecimalFormat formatter = (DecimalFormat) NumberFormat.getInstance(Locale.ID);
+                formatter.applyPattern("#,###,###,###");
+                String formattedString = formatter.format(longval);
+
+                //setting text after format to EditText
+                EtBeliCoin.setText(formattedString);
+                EtBeliCoin.setSelection(EtBeliCoin.getText().length());
+                EtBeliCoin.addTextChangedListener(this);
+
+//                if(s.toString().isEmpty()){
+//                    hargaBeliCoin = 0;
+//                }else {
+//                    hargaBeliCoin = Double.parseDouble(s.toString());
+//                }
+//                setHargaBeliCoin(hargaBeliCoin);
+//                hitungTotalCoin();
+//                hitungTotalIdr();
+//                hitungPersentasi();
+//                hitungSelesih();
+//                TvTotalCoin.setText(String.valueOf(getTotalCoin()));
+//                TvTotalIdr.setText(String.valueOf(formatRupiah.format(getTotalIdr())));
+//                TvPersentasi.setText(String.valueOf(getPersentasi()+" %"));
+//                TvUntungRugi.setText(String.valueOf(formatRupiah.format(getSelesih())));
 
             }
 

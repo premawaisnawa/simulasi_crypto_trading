@@ -35,7 +35,7 @@
             android:id="@+id/et_beli_coin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:numeric="decimal"
+            android:numeric="integer"
             android:layout_weight="1"/>
 
         <CheckBox
@@ -56,7 +56,7 @@
     <EditText
         android:layout_weight="1"
         android:id="@+id/et_jumlah_idr"
-        android:numeric="decimal"
+        android:numeric="integer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
         </LinearLayout>
@@ -71,7 +71,7 @@
         <EditText
             android:layout_weight="1"
             android:id="@+id/et_sell_coin"
-            android:numeric="decimal"
+            android:numeric="integer"
             android:layout_width="250sp"
             android:layout_height="wrap_content" />
         <CheckBox
