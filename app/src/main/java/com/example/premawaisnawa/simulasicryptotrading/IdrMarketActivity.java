@@ -107,7 +107,7 @@ public class IdrMarketActivity extends AppCompatActivity {
                     originalString = originalString.replaceAll(",", "");
                 }
                 longval = Long.parseLong(originalString);
-                DecimalFormat formatter = (DecimalFormat) NumberFormat.getInstance(Locale.ID);
+                DecimalFormat formatter = (DecimalFormat) NumberFormat.getInstance(Locale.US);
                 formatter.applyPattern("#,###,###,###");
                 String formattedString = formatter.format(longval);
 
@@ -115,7 +115,23 @@ public class IdrMarketActivity extends AppCompatActivity {
                 EtBeliCoin.setText(formattedString);
                 EtBeliCoin.setSelection(EtBeliCoin.getText().length());
                 EtBeliCoin.addTextChangedListener(this);
-
+ //______________________________________________________________________________________
+//                EtBeliCoin.removeTextChangedListener(this);
+//                String originalString = s.toString();
+//                Long longval;
+//                if (originalString.contains(",")) {
+//                    originalString = originalString.replaceAll(",", "");
+//                }
+//                longval = Long.parseLong(originalString);
+//                DecimalFormat formatter = (DecimalFormat) NumberFormat.getInstance(Locale.US);
+//                formatter.applyPattern("#,###,###,###");
+//                String formattedString = formatter.format(longval);
+//
+//                //setting text after format to EditText
+//                EtBeliCoin.setText(formattedString);
+//                EtBeliCoin.setSelection(EtBeliCoin.getText().length());
+//                EtBeliCoin.addTextChangedListener(this);
+//_______________________________________________________________________________________________
 //                if(s.toString().isEmpty()){
 //                    hargaBeliCoin = 0;
 //                }else {
