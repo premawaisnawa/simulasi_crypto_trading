@@ -9,12 +9,18 @@ import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
+import java.text.NumberFormat;
+import java.util.Locale;
 
 public class IdrMarketActivity extends AppCompatActivity {
     TextView TvTotalCoin, TvTotalIdr, TvUntungRugi, TvPersentasi,TvTakerBeli,TvTakerJual;
     EditText EtBeliCoin, EtJumlahIdr, EtJualCoin;
     CheckBox CbTakerBeli,CbTakerJual;
     double jumlahIdr,hargaBeliCoin, hargaJualCoin, totalCoin, totalIdr, persentasi, selesih;
+
+    Locale localeID = new Locale("in", "ID");
+    NumberFormat formatRupiah = NumberFormat.getCurrencyInstance(localeID);
+
 
     public double getJumlahIdr() {
         return jumlahIdr;
@@ -101,8 +107,13 @@ public class IdrMarketActivity extends AppCompatActivity {
                 }
                 setHargaBeliCoin(hargaBeliCoin);
                 hitungTotalCoin();
+                hitungTotalIdr();
+                hitungPersentasi();
+                hitungSelesih();
                 TvTotalCoin.setText(String.valueOf(getTotalCoin()));
-                TvTotalIdr.setText(String.valueOf(getTotalIdr()));
+                TvTotalIdr.setText(String.valueOf(formatRupiah.format(getTotalIdr())));
+                TvPersentasi.setText(String.valueOf(getPersentasi()+" %"));
+                TvUntungRugi.setText(String.valueOf(formatRupiah.format(getSelesih())));
 
             }
 
@@ -127,8 +138,12 @@ public class IdrMarketActivity extends AppCompatActivity {
                 setJumlahIdr(jumlahIdr);
                 hitungTotalCoin();
                 hitungTotalIdr();
+                hitungSelesih();
+                hitungPersentasi();
                 TvTotalCoin.setText(String.valueOf(getTotalCoin()));
-                TvTotalIdr.setText(String.valueOf(getTotalIdr()));
+                TvTotalIdr.setText(String.valueOf(formatRupiah.format(getTotalIdr())));
+                TvPersentasi.setText(String.valueOf(getPersentasi()+" %"));
+                TvUntungRugi.setText(String.valueOf(formatRupiah.format(getSelesih())));
 //                if(EtBeliCoin.getText().toString().isEmpty()){
 //                    hargaBeliCoin = 0;
 //                }else {
@@ -145,7 +160,7 @@ public class IdrMarketActivity extends AppCompatActivity {
             @Override
             public void afterTextChanged(Editable s) {
 
-
+                //TvTotalIdr.setText(String.valueOf(formatRupiah.format(getTotalIdr())));
             }
         });
         EtJualCoin.addTextChangedListener(new TextWatcher() {
@@ -167,10 +182,9 @@ public class IdrMarketActivity extends AppCompatActivity {
                 hitungTotalIdr();
                 hitungPersentasi();
                 hitungSelesih();
-                TvTotalCoin.setText(String.valueOf(getTotalCoin()));
-                TvTotalIdr.setText(String.valueOf(getTotalIdr()));
+                TvTotalIdr.setText(String.valueOf(formatRupiah.format(getTotalIdr())));
                 TvPersentasi.setText(String.valueOf(getPersentasi()+" %"));
-                TvUntungRugi.setText(String.valueOf(getSelesih()));
+                TvUntungRugi.setText(String.valueOf(formatRupiah.format(getSelesih())));
 
             }
 

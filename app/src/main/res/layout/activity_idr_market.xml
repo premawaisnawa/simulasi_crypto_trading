@@ -8,7 +8,18 @@
     android:layout_marginRight="4sp"
     android:orientation="vertical"
     tools:context="com.example.premawaisnawa.simulasicryptotrading.IdrMarketActivity">
+   <ScrollView
+       android:layout_width="match_parent"
+       android:layout_height="match_parent">
+       <LinearLayout
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:orientation="vertical">
     <TextView
+        android:textSize="30sp"
+        android:textAlignment="center"
+        android:textStyle="bold"
+        android:fontFamily="sans-serif-condensed"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="IDR Market"/>
@@ -22,11 +33,13 @@
         android:orientation="horizontal">
         <EditText
             android:id="@+id/et_beli_coin"
-            android:layout_width="250sp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:numeric="decimal" />
+            android:numeric="decimal"
+            android:layout_weight="1"/>
 
         <CheckBox
+            android:layout_weight="0"
             android:id="@+id/cb_taker_beli"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -36,12 +49,17 @@
         android:text="Jumlah IDR"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
     <EditText
+        android:layout_weight="1"
         android:id="@+id/et_jumlah_idr"
         android:numeric="decimal"
-        android:layout_width="250sp"
-        android:layout_height="wrap_content"
-        />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+        </LinearLayout>
     <TextView
         android:text="Harga Jual Coin"
         android:layout_width="wrap_content"
@@ -51,71 +69,106 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
         <EditText
+            android:layout_weight="1"
             android:id="@+id/et_sell_coin"
             android:numeric="decimal"
             android:layout_width="250sp"
             android:layout_height="wrap_content" />
         <CheckBox
+            android:layout_weight="0"
             android:id="@+id/cb_taker_jual"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Taker 0.3%"/>
     </LinearLayout>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Total Coin"/>
 
     <TextView
+        android:textSize="20sp"
+        android:textAlignment="center"
+        android:textStyle="bold"
+        android:fontFamily="sans-serif-condensed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Total Coin" />
+
+    <TextView
+        android:textSize="18sp"
         android:id="@+id/tv_total_coin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="0" />
     <TextView
+        android:textSize="20sp"
+        android:textAlignment="center"
+        android:textStyle="bold"
+        android:fontFamily="sans-serif-condensed"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Total IDR"/>
     <TextView
+        android:textSize="18sp"
         android:id="@+id/tv_total_idr"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="0"/>
     <TextView
-
+        android:textSize="20sp"
+        android:textAlignment="center"
+        android:textStyle="bold"
+        android:fontFamily="sans-serif-condensed"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Untung / Rugi (+/-)"/>
     <TextView
+        android:textSize="18sp"
         android:id="@+id/tv_untung_rugi"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="0"/>
+
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Persentasi"/>
-    <TextView
-        android:id="@+id/tv_persentasi"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="0"/>
-    <TextView
+        android:textSize="20sp"
+        android:textAlignment="center"
+        android:textStyle="bold"
+        android:fontFamily="sans-serif-condensed"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Biaya Taker Beli"/>
     <TextView
+        android:textSize="18sp"
         android:id="@+id/tv_taker_beli"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="0"/>
     <TextView
+        android:textSize="20sp"
+        android:textAlignment="center"
+        android:textStyle="bold"
+        android:fontFamily="sans-serif-condensed"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Biaya Jual Beli"/>
     <TextView
+        android:textSize="18sp"
         android:id="@+id/tv_taker_jual"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="0"/>
-
+    <TextView
+        android:textSize="27sp"
+        android:textAlignment="center"
+        android:textStyle="bold"
+        android:fontFamily="sans-serif-condensed"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Persentasi"/>
+    <TextView
+        android:textAlignment="center"
+        android:textSize="24sp"
+        android:id="@+id/tv_persentasi"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="0"/>
+       </LinearLayout>
+   </ScrollView>
 </LinearLayout>
