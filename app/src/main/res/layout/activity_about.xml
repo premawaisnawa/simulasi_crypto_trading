@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.premawaisnawa.simulasicryptotrading.AboutActivity">
+
+    <ImageView
+        android:layout_marginTop="9dp"
+        android:id="@+id/foto"
+        android:layout_centerHorizontal="true"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:src="@drawable/prema"/>
+    <TextView
+        android:layout_marginTop="15dp"
+        android:textAlignment="center"
+        android:text=
+            "Kade Prema Waisnawa\npremawaisnawa@gmail.com\n081 236 727 741"
+        android:layout_below="@+id/foto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+</RelativeLayout>
