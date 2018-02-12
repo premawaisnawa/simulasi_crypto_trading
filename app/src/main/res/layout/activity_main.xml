@@ -84,6 +84,7 @@
         android:layout_centerHorizontal="true">
 
         <Button
+            android:textAlignment="viewEnd"
             android:layout_marginBottom="5dp"
             android:id="@+id/btnStart"
             android:layout_width="320dp"
